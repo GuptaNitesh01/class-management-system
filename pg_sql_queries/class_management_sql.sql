@@ -93,3 +93,12 @@ create table branches(
 	foreign key(student_id) references students(student_id)
 );
 select * from branches;
+
+create table student_courses(
+	id int primary key,
+	student_id int,
+	student_course numeric,
+	foreign key(student_id) references students(student_id),
+	foreign key(student_course) references courses(course_id)
+);
+select * from student_courses;

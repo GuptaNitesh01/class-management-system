@@ -9,3 +9,9 @@ app.use(statusMonitor);  // .use is a middleware
 
 
 require("./router")(app);
+
+app.listen(9998,(error)=>{
+    if(!error){
+        console.log("server running on port no 9998 :");
+    }
+})
