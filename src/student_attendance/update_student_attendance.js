@@ -1,15 +1,13 @@
 async function main (req,res){
   
-    const branch_id=req.query.branch_id;
-    const branch_name=req.query.branch_name;
-    // const course_id=req.query.course_id;
-
+    const student_attendance_id = req.query.student_attendance_id;
+    const student_attendance_name = req.query.student_attendance_name;
    
        const {getPGConnection} = require("../base/pg_connector")
        const client =await getPGConnection();
        console.log("CLIENT",client)
        
-          await client.query(`UPDATE public.subjects SET branch_id=$1 WHERE branch_name = $2;`, [branch_id,branch_name],async function(err,data){
+          await client.query(`UPDATE public.student_attendances SET student_attendance_id=$1 WHERE student_attendance_name = $2;`, [student_attendance_id,student_attendance_name],async function(err,data){
               if(data){
                   res.send(data.rows);
               }
@@ -20,10 +18,9 @@ async function main (req,res){
               await client.end() 
           })
     
-}
-module.exports={
+  }
+  module.exports={
     main
-}
-
-
-
+  }
+  
+  
