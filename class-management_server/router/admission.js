@@ -19,7 +19,7 @@ module.exports = function (app) {
         console.log("X",x)
         x.main(req,res);
     })
-    app.get('/get_byi_id', (req,res)=>{
+    app.get('/get_by_list', (req,res)=>{
         let x = require("../src/admissions/get_by_list");
         console.log("X",x)
         x.main(req,res);

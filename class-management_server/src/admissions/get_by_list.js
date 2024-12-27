@@ -1,5 +1,5 @@
 const main =async(req,res)=>{
-    const {admission_id}=req.params;
+    const {admission_id}=req.query;
     const {getPGConnection} = require("../base/pg_connector"); 
     const client=await getPGConnection();
     client.query("SELECT * FROM admissions WHERE admission_id=$1",[admission_id],function(err,result){
