@@ -5,10 +5,10 @@ export const SidebarComp=()=>{
    return(<>
     <div class="ui">
  
- <div class="entity">
+ <div style={{ padding: "10px", background: "#f3ed0b", color: "white" }}>
     <ul>
         <li>
-        <Link to={'admissions'}>
+        <Link to={'admissions'} style={{ color: "blue", textDecoration: "none" }}>
           admissions
          </Link>
         </li>

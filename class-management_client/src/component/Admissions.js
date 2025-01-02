@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// import './Shimmer.css'
 
 const Admissions = () => {
     const [admissionData, setAdmissionData] = useState([]);
@@ -8,7 +9,7 @@ const Admissions = () => {
             console.log("response",response)
          
         } catch (error) {
-            console.error('Error fetching the admissions data:', error);
+            console.error('Error fetching the admissions data:', error); 
         }
     };
     useEffect(() => {
@@ -70,24 +71,3 @@ const Admissions = () => {
 
 export default Admissions;
 
-
-
-
-// import React, { useEffect, useState } from 'react'
-
-// const Admissions = () => {
-//     const[admissionData,setAdmissionData] = useState([]);
-//     useEffect(()=>{
-//         const apicall = () =>{
-//             const result = fetch('http://localhost:9998/read_admission');
-//             console.log(result,"RESULT");
-//         }
-//         apicall();
-//     },[])
-//   return (
-//     <div>Admissions</div>
-
-//   )
-// }
-
-// export default Admissions

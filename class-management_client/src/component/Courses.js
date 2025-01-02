@@ -3,13 +3,22 @@ import React, { useEffect, useState } from 'react';
 const Courses = () => {
     const [courseData, setCourseData] = useState([]);
 
+    const editData = (id) =>{
+        try {
+            const response =  fetch(`${id}`);
+            console.log("response",response)
+         
+        } catch (error) {
+            console.error('Error fetching the courses data:', error);
+        }
+    };
+    
+
     useEffect(() => {
         const apicall = async () => {
             try {
                 const response = await fetch('');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
+                console.log("response",response);
                 const result = await response.json();
                 setCourseData(result);
                 console.log(result, "RESULT");
@@ -23,12 +32,39 @@ const Courses = () => {
 
     return (
         <div>
-            <h1>Course</h1>
-            <ul>
-                {courseData.map((item, index) => (
-                    <li key={index}>{item.name}</li>
-                ))}
-            </ul>
+            <h1>Courses</h1>
+            <table>
+                <thead>
+                    <th>course_id</th>
+                    <th>course_name</th>
+                    <th>course_duration</th>
+                    <th>course_fees</th>
+                   
+                </thead>
+                <tbody> 
+
+                    {courseData.map((item, index) => (
+                                            <tr>
+                            <td>
+                            {item.course_id}
+                         </td><td>
+                            {item.course_name}
+                         </td><td>
+                            {item.course_duration}
+                         </td><td>
+                            {item.course_fees}
+                         </td>
+                         <td>
+                            <button onClick={()=>{editData(item.course_id)}}>Edit</button>
+                         </td>
+                            </tr>
+                        
+                        ))}
+
+                   
+                </tbody>
+            </table>
+           
         </div>
     );
 };

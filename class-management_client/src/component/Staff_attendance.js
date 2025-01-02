@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-const Exams = () => {
-    const [examData, setExamData] = useState([]);
+const Staff_attendance = () => {
+    const [staff_attendanceData, setStaff_attendanceData] = useState([]);
 
     useEffect(() => {
         const apicall = async () => {
@@ -11,10 +11,10 @@ const Exams = () => {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
                 const result = await response.json();
-                setExamData(result);
+                setStaff_attendanceData(result);
                 console.log(result, "RESULT");
             } catch (error) {
-                console.error('Error fetching the exams data:', error);
+                console.error('Error fetching the staff_attendances data:', error);
             }
         };
 
@@ -25,7 +25,7 @@ const Exams = () => {
         <div>
             <h1>Exams</h1>
             <ul>
-                {examData.map((item, index) => (
+                {staff_attendanceData.map((item, index) => (
                     <li key={index}>{item.name}</li>
                 ))}
             </ul>

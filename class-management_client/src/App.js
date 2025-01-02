@@ -11,7 +11,7 @@ export default function App() {
   return (
     <div>
     <div className="intro">
-      <h1>Welcome to my website!</h1>
+    <h1>Welcome to Class Management</h1>
     </div>
     <SidebarComp/>
     <Outlet/>

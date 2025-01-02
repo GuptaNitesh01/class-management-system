@@ -1,7 +1,6 @@
 
 import {createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import Exams from "./Exams";
 import Admissions from "./Admissions";
 import Students from "./students";
 import Staffs from "./Staff";
@@ -9,6 +8,7 @@ import Attendances from "./Attendance";
 import Branches from "./Branches";
 import Courses from "./Courses";
 import Subjects from "./Subjects";
+import Exams from "./Exams";
 const appRouter = createBrowserRouter([
     {
       path:"/",
@@ -16,7 +16,7 @@ const appRouter = createBrowserRouter([
     //   errorElement:<Errorpage/>,
       children:[
         {
-          path:"exams",
+          path:"Exams",
           element:<Exams/>,
         },
         {

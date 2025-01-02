@@ -2,6 +2,15 @@ import React, { useEffect, useState } from 'react';
 
 const Exams = () => {
     const [examData, setExamData] = useState([]);
+    const editData = (id) =>{
+        try {
+            const response =  fetch(`${id}`);
+            console.log("response",response)
+         
+        } catch (error) {
+            console.error('Error fetching the EXAMS data:', error);
+        }
+    };
 
     useEffect(() => {
         const apicall = async () => {
@@ -21,14 +30,42 @@ const Exams = () => {
         apicall();
     }, []);
 
-    return (
+
+     return (
         <div>
             <h1>Exams</h1>
-            <ul>
-                {examData.map((item, index) => (
-                    <li key={index}>{item.name}</li>
-                ))}
-            </ul>
+            <table>
+                <thead>
+                    <th>exam_id</th>
+                    <th>exam_name</th>
+                    <th>date</th>
+                    <th>subject_id</th>
+                   
+                </thead>
+                <tbody> 
+
+                    {examData.map((item, index) => (
+                                            <tr>
+                            <td>
+                            {item.exam_id}
+                         </td><td>
+                            {item.exam_name}
+                         </td><td>
+                            {item.date}
+                         </td><td>
+                            {item.subject_id}
+                         </td>
+                         <td>
+                            <button onClick={()=>{editData(item.exam_id)}}>Edit</button>
+                         </td>
+                            </tr>
+                        
+                        ))}
+
+                   
+                </tbody>
+            </table>
+           
         </div>
     );
 };
